@@ -12,3 +12,5 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['gamihex596@citdaca.com']
     POSTS_PER_PAGE = 5
+    LANGUAGES = ['en', 'es']
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
