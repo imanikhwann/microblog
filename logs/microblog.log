@@ -40,3 +40,29 @@ Traceback (most recent call last):
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password' with values ['token']. Did you mean 'auth.reset_password' instead?
 2025-01-30 17:10:21,019 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:73]
+2025-01-30 18:47:07,598 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
+2025-01-30 19:17:02,981 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
+2025-01-30 19:17:48,946 ERROR: Exception on /search [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 129, in search
+    if not g.search_from.validate():
+           ^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\ctx.py", line 56, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: search_from. Did you mean: 'search_form'?
+2025-01-30 19:18:43,717 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
+2025-01-30 19:19:42,464 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
+2025-01-30 19:20:10,580 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
+2025-01-30 19:22:14,124 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
