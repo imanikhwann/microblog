@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-31 22:25+0800\n"
+"POT-Creation-Date: 2025-02-01 23:20+0800\n"
 "PO-Revision-Date: 2025-01-29 23:41+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: app/__init__.py:20
+#: app/__init__.py:21
 msgid "Please log in to access this page."
 msgstr ""
 
@@ -162,12 +162,20 @@ msgstr ""
 msgid "You are not following %(username)s."
 msgstr ""
 
-#: app/main/routes.py:154
+#: app/main/routes.py:155
 msgid "Your message has been sent."
 msgstr ""
 
-#: app/main/routes.py:156
+#: app/main/routes.py:157
 msgid "Send Message"
+msgstr ""
+
+#: app/main/routes.py:188
+msgid "An export task is currently in progress"
+msgstr ""
+
+#: app/main/routes.py:190
+msgid "Exporting posts..."
 msgstr ""
 
 #: app/templates/_post.html:14
@@ -187,15 +195,15 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: app/templates/base.html:47 app/templates/messages.html:4
+#: app/templates/base.html:48 app/templates/messages.html:4
 msgid "Messages"
 msgstr ""
 
-#: app/templates/base.html:50
+#: app/templates/base.html:56
 msgid "Profile"
 msgstr ""
 
-#: app/templates/base.html:53
+#: app/templates/base.html:59
 msgid "Logout"
 msgstr ""
 
@@ -229,7 +237,11 @@ msgstr ""
 msgid "Send Message to %(recipient)s"
 msgstr ""
 
-#: app/templates/user.html:32
+#: app/templates/user.html:17
+msgid "Export your posts"
+msgstr ""
+
+#: app/templates/user.html:39
 msgid "Send private message"
 msgstr ""
 

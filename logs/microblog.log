@@ -1,4 +1,23 @@
-2025-01-31 23:08:49,289 ERROR: Exception on /index [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
+2025-02-01 23:43:02,440 ERROR: Exception on /export_posts [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect(error)
+    )
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\retry.py", line 62, in call_with_retry
+    return do()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ~~~~~~~~~~~~~^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 730, in _connect
+    raise err
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 718, in _connect
+    sock.connect(socket_address)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,79 +31,32 @@ Traceback (most recent call last):
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 43, in index
-    return render_template('index.html', title=_('Home'), form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
-    rv = template.render(context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\index.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 136, in top-level template code
-    {% if curren_user.is_authenticated %}
-    ^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'curren_user' is undefined
-2025-01-31 23:08:52,560 ERROR: Exception on /index [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 43, in index
-    return render_template('index.html', title=_('Home'), form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
-    rv = template.render(context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\index.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 136, in top-level template code
-    {% if curren_user.is_authenticated %}
-    ^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'curren_user' is undefined
-2025-01-31 23:09:21,070 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
-2025-01-31 23:09:29,742 ERROR: Exception on /messages [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 163, in messages
-    current_user.add_notification('unread_message_count', 0)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'User' object has no attribute 'add_notification'. Did you mean: 'add_notifications'?
-2025-01-31 23:11:15,229 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
-2025-01-31 23:11:20,332 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
-2025-01-31 23:11:24,059 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:76]
+  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 178, in export_posts
+    current_user.launch_task('export_posts', _('Exporting posts...'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\models.py", line 154, in launch_task
+    rq_job = current_app.task_queue.enqueue(f'app.task.{name}', self.id, *args, **kwargs)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\rq\queue.py", line 978, in enqueue
+    return self.enqueue_call(
+           ~~~~~~~~~~~~~~~~~^
+        func=f,
+        ^^^^^^^
+    ...<15 lines>...
+        pipeline=pipeline,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\rq\queue.py", line 721, in enqueue_call
+    return self.enqueue_job(job, pipeline=pipeline, at_front=at_front)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\rq\queue.py", line 1103, in enqueue_job
+    pipe.execute()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\client.py", line 1524, in execute
+    conn = self.connection_pool.get_connection("MULTI", self.shard_hint)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 1422, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.

@@ -1,4 +1,5 @@
-2025-02-01 23:26:04,259 ERROR: Exception on /index [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
+2025-01-30 16:33:39,753 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:73]
+2025-01-30 16:33:56,614 ERROR: Exception on /auth/login [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -9,11 +10,8 @@ Traceback (most recent call last):
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 43, in index
-    return render_template('index.html', title=_('Home'), form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "C:\Users\owner\Documents\Projects\microblog\app\auth\routes.py", line 27, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
     return _render(app, template, context)
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
@@ -23,83 +21,12 @@ Traceback (most recent call last):
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\index.html", line 2, in top-level template code
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\auth\login.html", line 2, in top-level template code
     {% import "bootstrap_wtf.html" as wtf %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 67, in top-level template code
-    {% if current_user.is_authenticated %}
-    ^^^^^^^^^^^^^
-TypeError: User.get_task_in_progress() missing 1 required positional argument: 'name'
-2025-02-01 23:27:49,132 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:79]
-2025-02-01 23:28:00,914 ERROR: Exception on /index [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 43, in index
-    return render_template('index.html', title=_('Home'), form=form, posts=posts.items, next_url=next_url, prev_url=prev_url)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
-    rv = template.render(context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\index.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 67, in top-level template code
-    {% if current_user.is_authenticated %}
-    ^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
-    if hasattr(obj, "jinja_pass_arg"):
-       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'get_tasks_in_progress'
-2025-02-01 23:35:19,868 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:79]
-2025-02-01 23:35:41,571 ERROR: Exception on /user/iman [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\main\routes.py", line 65, in user
-    return render_template('user.html', user=user, posts=posts.items, next_url=next_url, prev_url=prev_url, form=form)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
-    rv = template.render(context)
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-    ^^^^^^^^^^^^^
-  File "C:\Users\owner\Documents\Projects\microblog\app\templates\user.html", line 16, in block 'content'
-    <a href="{{ url_for('main.export_posts') }}">
-    ^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 20, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('index') }}">Microblog</a>
+    ^^^^^^^^^
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1121, in url_for
     return self.handle_url_build_error(error, endpoint, values)
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,5 +38,92 @@ Traceback (most recent call last):
     )
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.export_posts'. Did you mean 'main.explore' instead?
-2025-02-01 23:37:44,318 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:79]
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'index'. Did you mean 'main.index' instead?
+2025-01-30 16:47:22,020 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:73]
+2025-01-30 16:47:32,221 ERROR: Exception on /auth/login [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\auth\routes.py", line 27, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\auth\login.html", line 2, in top-level template code
+    {% import "bootstrap_wtf.html" as wtf %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 58, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\auth\login.html", line 7, in block 'content'
+    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'register'. Did you mean 'auth.register' instead?
+2025-01-30 16:47:37,609 ERROR: Exception on /auth/login [GET] [in C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\auth\routes.py", line 27, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\auth\login.html", line 2, in top-level template code
+    {% import "bootstrap_wtf.html" as wtf %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\base.html", line 58, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\app\templates\auth\login.html", line 7, in block 'content'
+    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'register'. Did you mean 'auth.register' instead?
+2025-01-30 16:54:21,315 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:73]
