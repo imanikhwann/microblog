@@ -10,7 +10,7 @@ from flask_login import UserMixin
 from hashlib import md5
 from time import time
 import jwt, json, redis, rq
-from flask import current_app
+from flask import current_app, url_for
 from app.search import add_to_index, remove_from_index, query_index
 
 class SearchableMixin(object):
@@ -163,6 +163,38 @@ class User(UserMixin, db.Model):
     def get_task_in_progress(self, name):
         query = self.tasks.select().where(Task.name == name, Task.complete == False)
         return db.session.scalar(query)
+    
+    def posts_count(self):
+        query = sa.select(sa.func.count()).select_from(self.posts.select().subquery())
+        return db.session.scalar(query)
+    
+    def to_dict(self, include_email=False):
+        data = {
+            'id': self.id,
+            'username': self.username,
+            'last_seen': self.last_seen.replace(tzinfo=timezone.utc).isoformat() if self.last_seen else None,
+            'about_me': self.about_me,
+            'post_count': self.posts_count(),
+            'follower_count': self.followers_count(),
+            'following_count': self.following_count(),
+            '_links': {
+                'self': url_for('api.get_user', id=self.id),
+                'followers': url_for('api.get_followers', id=self.id),
+                'following': url_for('api.get_following', id=self.id),
+                'avatar': self.avatar(128)
+            }
+        }
+
+        if include_email:
+            data['email'] = self.email
+        return data
+    
+    def from_dict(self, data, new_user=False):
+        for field in ['username', 'email', 'about_me']:
+            if field in data:
+                setattr(self, field, data[field])
+            if new_user and 'password' in data:
+                self.set_password(data['password'])
 
 @login.user_loader
 def load_user(id):
