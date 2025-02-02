@@ -60,3 +60,10 @@ Traceback (most recent call last):
   File "C:\Users\owner\Documents\Projects\microblog\venv\Lib\site-packages\redis\connection.py", line 363, in connect
     raise ConnectionError(self._error_message(e))
 redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2025-02-02 16:03:57,238 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
+2025-02-02 16:08:03,996 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
+2025-02-02 16:13:06,162 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
+2025-02-02 16:19:22,064 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
+2025-02-02 16:35:06,051 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
+2025-02-02 16:35:12,665 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
+2025-02-02 16:53:04,562 INFO: Microblog startup [in C:\Users\owner\Documents\Projects\microblog\app\__init__.py:82]
